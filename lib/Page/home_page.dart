@@ -1,8 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_money_management/Account/transaction.dart';
-import 'package:flutter_money_management/Pie_Chart/pie_chart.dart';
+import 'package:flutter_money_management/Chart/pie_chart.dart';
 import 'package:flutter_money_management/navbar.dart';
 import 'package:flutter_money_management/Account/wallet.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
@@ -99,9 +102,15 @@ class MyHomePage extends StatelessWidget {
                       children: [
                         Text(
                           'Latest Transaction',
-                          style: TextStyle(
-                            color: Color.fromRGBO(36, 40, 40, 0.6)
+                          style: GoogleFonts.josefinSans(
+                            textStyle: TextStyle(
+                              fontSize: 16.51,
+                              color: Color.fromRGBO(38, 40, 40, 0.6),
+                            )
                           ),
+                          /*TextStyle(
+                            color: Color.fromRGBO(36, 40, 40, 0.6)
+                          ),*/
                         ),
                         TextButton(
                           child: Text(

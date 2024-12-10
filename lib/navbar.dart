@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class navbar extends StatefulWidget {
@@ -37,7 +39,8 @@ class _navbarState extends State<navbar> {
                   child: FloatingActionButton(
                     shape: CircleBorder(),
                     onPressed: (){}, 
-                    backgroundColor: Color.fromRGBO(242, 243, 243, 1.0),
+                    backgroundColor: Color.fromRGBO(242, 243, 243, 1.0), 
+                    elevation: 0.1,
                     child: Container(
                       width: 80,
                       height: 80,
@@ -53,8 +56,7 @@ class _navbarState extends State<navbar> {
                           )
                         ]
                       ),
-                    child: Icon(Icons.add, color: Color.fromRGBO(146, 208, 211, 1.0),),), 
-                    elevation: 0.1,
+                    child: Icon(Icons.add, color: Color.fromRGBO(146, 208, 211, 1.0),),),
                   ),
                 ),
 

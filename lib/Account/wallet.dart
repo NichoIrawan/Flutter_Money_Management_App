@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -37,8 +39,9 @@ class Wallet {
 class WalletOverviewTemplate extends StatelessWidget {
   WalletOverviewTemplate({super.key, required this.child});
 
-  //Wallet Declarition
+  //Wallet Declaration
   final Wallet child;
+  // final String imgUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -89,3 +92,55 @@ class WalletOverviewTemplate extends StatelessWidget {
   }
 }
 
+class WalletPageTemplate extends StatelessWidget {
+  const WalletPageTemplate({super.key, required this. child});
+
+  final Wallet child;
+
+  @override
+  Widget build(BuildContext context) {
+    //Formatting to currency
+    NumberFormat numberFormat = NumberFormat.decimalPattern();
+
+    //Wallet Box
+    return Container(
+      margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      width: 128,
+      height: 97,
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(242, 243, 243, 1.0),
+        borderRadius: BorderRadius.all(Radius.circular(20)),
+        boxShadow: [BoxShadow(
+          color: Color.fromRGBO(36, 40, 40, 0.05),
+          offset: Offset(0, 6),
+          blurRadius: 9.5,
+          spreadRadius: 0,
+        )]
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+
+          // Wallet Name
+          Text(
+            child.name,
+            style: TextStyle(
+              color: Color.fromRGBO(36, 40, 40, 0.6),
+              fontSize: 12.98,
+            ),
+          ),
+
+          //Wallet Nominal
+          Text(
+            numberFormat.format(child.total),
+            style: TextStyle(
+              color: Color.fromRGBO(146, 208, 211, 1.0),
+              fontSize: 21,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
