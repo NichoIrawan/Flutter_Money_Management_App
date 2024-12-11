@@ -3,6 +3,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import '../navbar.dart';
@@ -52,26 +53,29 @@ class MyWallet extends StatelessWidget {
           ]
         ),
       ),
-      body: Column(
-        children: [
-          WalletOverview(child: totalWallet),
-          Expanded(
-            // padding: EdgeInsets.only(left: 10, right: 10),
-            child: GridView.builder(
-              itemCount: wallets.length,
-              shrinkWrap: true,
-              gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: max(1, MediaQuery.sizeOf(context).width ~/ 165), 
-                childAspectRatio: 165/121,
+      body: Container(
+        margin: EdgeInsets.only(left: 10, right: 10),
+        child: Column(
+            children: [
+              WalletOverview(child: totalWallet),
+              Expanded(
+                // padding: EdgeInsets.only(left: 10, right: 10),
+                child: GridView.builder(
+                  itemCount: wallets.length,
+                  shrinkWrap: true,
+                  gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: max(1, MediaQuery.sizeOf(context).width ~/ 165), 
+                    childAspectRatio: 165/121,
+                  ),
+                  itemBuilder: (context, index) {
+                    return WalletPageTemplate(
+                      child: wallets[index],
+                    );
+                  }
+                ),
               ),
-              itemBuilder: (context, index) {
-                return WalletPageTemplate(
-                  child: wallets[index],
-                );
-              }
-            ),
+            ],
           ),
-        ],
       ),
 
       //Navbar
@@ -101,26 +105,33 @@ class WalletOverview extends StatelessWidget {
         )],
       ),
       height: 98,
-      margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+      margin: EdgeInsets.fromLTRB(10, 20, 10, 0),
       padding: EdgeInsets.all(20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             "Saldo Saya",
-            style: TextStyle(color: Color.fromRGBO(38, 40, 40, 0.6),),
+            style: GoogleFonts.josefinSans(
+              color: Color.fromRGBO(38, 38, 40, 0.6),
+              fontSize: 16.51,
+            ),
           ),
           Row(
             children: [
               Text(
                   numberFormat.format(child),
-                  style: TextStyle(color: Color.fromRGBO(146, 208, 211, 1.0),),
+                  style: GoogleFonts.josefinSans(
+                    color: Color.fromRGBO(146, 208, 211, 1.0),
+                    fontSize: 16.51,
+                  ),
               ),
               SizedBox(
                 width: 40,
                 child: Icon(
                   Icons.remove_red_eye_outlined,
                   color: Color.fromRGBO(146, 208, 211, 1.0),
+                  size: 30.9,
                 ),
               )
             ],

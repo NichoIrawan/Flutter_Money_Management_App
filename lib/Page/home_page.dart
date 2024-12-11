@@ -18,6 +18,7 @@ class MyHomePage extends StatelessWidget {
     Wallet('Invest', 40000000),
     Wallet('Ovo', 200000),
   ];  
+  
   final List transaction = [
     'Transaction 1',
     'Transaction 2',

@@ -1,14 +1,20 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 //Wallet Class
 class Wallet {
   String name;
   int total;
+  IconData icon = Icons.wallet_giftcard;
 
   Wallet(this.name, this.total);
+
+  void setIcon(IconData icon) {
+    this.icon = icon;
+  }
 
   void setTotal(int total){
     this.total = total;
@@ -41,7 +47,6 @@ class WalletOverviewTemplate extends StatelessWidget {
 
   //Wallet Declaration
   final Wallet child;
-  // final String imgUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +98,7 @@ class WalletOverviewTemplate extends StatelessWidget {
 }
 
 class WalletPageTemplate extends StatelessWidget {
-  const WalletPageTemplate({super.key, required this. child});
+  const WalletPageTemplate({super.key, required this.child});
 
   final Wallet child;
 
@@ -105,6 +110,7 @@ class WalletPageTemplate extends StatelessWidget {
     //Wallet Box
     return Container(
       margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+      padding: EdgeInsets.fromLTRB(15, 10, 0, 5),
       width: 128,
       height: 97,
       decoration: BoxDecoration(
@@ -119,25 +125,33 @@ class WalletPageTemplate extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
 
+          //Wallet Icon
+          Icon(
+            child.icon,
+            color: Color.fromRGBO(146, 208, 211, 1.0),
+            size: 50,
+          ),
+          
           // Wallet Name
           Text(
             child.name,
-            style: TextStyle(
-              color: Color.fromRGBO(36, 40, 40, 0.6),
+            style: GoogleFonts.josefinSans(
+              color: Color.fromRGBO(38, 38, 40, 0.6),
               fontSize: 12.98,
-            ),
+            )
           ),
 
           //Wallet Nominal
           Text(
             numberFormat.format(child.total),
-            style: TextStyle(
+            style: GoogleFonts.josefinSans(
               color: Color.fromRGBO(146, 208, 211, 1.0),
               fontSize: 21,
               fontWeight: FontWeight.bold,
-            ),
+            )
           ),
         ],
       ),
