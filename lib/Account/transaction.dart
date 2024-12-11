@@ -58,7 +58,7 @@ class MyTransactionTemplate extends StatelessWidget {
               children: [
                 
                 //Transaction name
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width * 0.3,
                   height: 20,
                   child: Text(
@@ -71,7 +71,7 @@ class MyTransactionTemplate extends StatelessWidget {
                 ),
 
                 //Transaction Time
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width * 0.3,
                   height: 20,
                   child: Text(

@@ -20,7 +20,7 @@ class MyWallet extends StatelessWidget {
     Wallet('Ovo', 200000),
   ];  
 
-  int totalWallet = 10000000;
+  final int totalWallet = 10000000;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +54,7 @@ class MyWallet extends StatelessWidget {
       ),
       body: Column(
         children: [
-          walletOverview(child: totalWallet),
+          WalletOverview(child: totalWallet),
           Expanded(
             // padding: EdgeInsets.only(left: 10, right: 10),
             child: GridView.builder(
@@ -80,8 +80,8 @@ class MyWallet extends StatelessWidget {
   }
 }
 
-class walletOverview extends StatelessWidget {
-  const walletOverview({super.key, required this.child});
+class WalletOverview extends StatelessWidget {
+  const WalletOverview({super.key, required this.child});
 
   final int child;
 
